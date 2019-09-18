@@ -1,0 +1,58 @@
+<div class='card' style="margin-top:15px;">
+  <div class='card-header'>
+      <h4> {{pageTitle}}</h4>
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-4'>
+        <input type='text' placeholder="Category"
+        [(ngModel)]='listFilter'/>
+      </div>
+    </div>
+   
+    <!--Search books -->
+     <div class='row'>
+    <div class='col-md-2'>Sort by:</div>
+    <div class='col-md-4'>     
+        <select [(ngModel)]='sortByKey'>        
+          <option value="topic">Category</option>
+          <option value="author">Author</option>
+          <option value="bookTitle">Book Name</option>
+        </select>          
+     </div>
+     </div>
+     <!-- Display books --> 
+
+    <div class='table-responsive'>
+      <table class='table'>
+         <thead>
+          <tr>
+            <th>Book Name</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th></th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr *ngFor='let favourite of filteredBooks | sortBy: sortByKey | searchpipe: searchtext'>
+              <td>{{favourite.bookTitle}}</td>
+              <td>{{favourite.topic}}</td>
+              <td>{{favourite.author}}</td>
+             
+            </tr>
+          </tbody>
+        </table>
+     </div>
+
+
+  
+  </div>
+  <div class='card-footer'>
+      <button class='btn btn-outline-secondary'
+              (click)='goBack()'
+              style='width:80px'>
+        <i class='fa fa-chevron-left'></i> Back
+      </button>
+    </div>
+</div>    

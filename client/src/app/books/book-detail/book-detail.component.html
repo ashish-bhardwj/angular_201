@@ -1,0 +1,60 @@
+<div class='card'
+     *ngIf='book'>
+  <div class='card-header'>
+    {{pageTitle + ': ' + book.bookTitle}}
+  </div>
+
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <div class='row'>
+          <div class='col-md-4'>Book id:</div>
+          <div class='col-md-8'>{{book._id}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Title:</div>
+          <div class='col-md-8'>{{book.bookTitle}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Category:</div>
+          <div class='col-md-8'>{{book.topic}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Author:</div>
+          <div class='col-md-8'>{{book.author}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Cost:</div>
+          <div class='col-md-8'>{{book.cost}}</div>
+        </div>
+        <div class='row'>
+            <div class='col-md-4'>Rating:</div>
+            <div class='col-md-8'>{{book.rating}}</div>
+        </div>
+        <div class='row'>
+            <div class='col-md-4'>Issued:</div>
+            <div class='col-md-8'>{{book.issued}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Description:</div>
+          <div class='col-md-8'>{{book.description}}</div>
+        </div>
+       
+     </div>
+     <div class='col-md-4'>
+        <img class='center-block img-responsive'
+        src="assets/images/library.jpg"
+             [style.width.px]='200'
+             [style.margin.px]='2'>
+      </div>
+    </div>
+  </div>
+
+  <div class='card-footer'>
+    <button class='btn btn-outline-secondary'
+            (click)='onBack()'
+            style='width:80px'>
+      <i class='fa fa-chevron-left'></i> Back
+    </button>
+  </div>
+</div>

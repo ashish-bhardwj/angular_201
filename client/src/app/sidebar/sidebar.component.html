@@ -1,0 +1,52 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}" style="margin-top: 7px;">
+  <div class="list-group">
+      <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+          <span>{{ 'Dashboard'  }}</span>
+      </a>
+      <a  *ngIf="loginService.loggedIn()" [routerLink]="['/books']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-book"></i>&nbsp;
+          <span>{{ 'Issue Books' }}</span>
+      </a>
+   
+      <a  *ngIf="!loginService.loggedIn()" [routerLink]="['/login']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-sign-in"></i>&nbsp;&nbsp;
+          <span>{{ 'Login'  }}</span>
+      </a>
+      <a  *ngIf="!loginService.loggedIn()" [routerLink]="['/signup']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-user-plus"></i>&nbsp;
+          <span>{{ 'Sign Up'  }}</span>
+      </a>
+      <a  *ngIf="!loginService.loggedIn()" [routerLink]="['/admin']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
+          <span>{{ 'Admin'  }}</span>
+      </a>
+
+      <a  *ngIf="loginService.loggedIn()" [routerLink]="['/myBooks']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-book"></i>&nbsp; &nbsp;
+          <span>{{ 'My Books'  }}</span>
+      </a>
+
+      <a  *ngIf="loginService.loggedIn()" [routerLink]="['/favourite']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-heart"></i>&nbsp; &nbsp;
+          <span>{{ 'Favourite Books'  }}</span>
+      </a>
+      
+      <a  *ngIf="loginService.loggedIn()" [routerLink]="['/profile']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+              <i class="fa fa-user" aria-hidden="true"></i>&nbsp; &nbsp;
+              <span>{{ 'Profile'  }}</span>
+      </a>    
+
+      <a  *ngIf="loginService.loggedIn()" (click)="onLogoutClick()" [routerLinkActive]="['router-link-active']" class="list-group-item">
+              <i class="fa fa-fw fa-power-off"></i>&nbsp;
+          <span>{{ 'Log Out'  }}</span>
+      </a>
+
+     
+  
+  </div>
+  <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+      <i class="fa fa-fw fa-angle-double-{{collapsed?'right':'left'}}"></i>&nbsp;
+      <span></span>
+  </div>
+</nav>

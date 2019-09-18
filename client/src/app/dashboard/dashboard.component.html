@@ -1,0 +1,90 @@
+<div [@routerTransition] style="margin-top:15px;">
+   
+  <div class="row">
+      <div class="col-md-12">
+          <ngb-carousel>
+              <ng-template ngbSlide *ngFor="let slider of sliders">
+                  <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                  <div class="carousel-caption">
+                      <h3>{{slider.label}}</h3>
+                      <p>{{slider.text}}</p>
+                  </div>
+              </ng-template>
+          </ngb-carousel>
+      </div>
+  </div>
+  <hr>
+</div>
+
+
+<div class="card">
+
+      <div class="card-header">
+              <h3 class=" text-center"><strong>Most Popular Books</strong></h3>
+      </div>
+  <div class="card-body">
+      <div class="text-center">
+       
+          
+              
+                <div class="image">
+                    <a href="https://www.goodreads.com/book/show/1845.Into_the_Wild" target="_blank">
+                      <img src="assets/images/wild.jpg"
+                      class="img-responsive center-block"
+                      style="max-height:250px;" /></a> &nbsp;&nbsp;
+
+                      <a href="https://www.goodreads.com/book/show/865.The_Alchemist" target="_blank">
+                        <img src="assets/images/alchemist.jpg"
+                       class="img-responsive center-block"
+                       style="max-height:250px;" /></a> &nbsp;&nbsp;
+
+                       <a href="https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck" target="_blank">
+                      <img src="assets/images/subtle.jpg"
+                       class="img-responsive center-block"
+                       style="max-height:250px;" /></a>  &nbsp;  &nbsp;
+                       
+                       <a href="https://www.goodreads.com/book/show/1953.A_Tale_of_Two_Cities" target="_blank">
+                          <img src="assets/images/stranger.jpg"
+                           class="img-responsive center-block"
+                           style="max-height:250px;" /></a> &nbsp;&nbsp;
+
+                      <a href="https://www.goodreads.com/book/show/77203.The_Kite_Runner" target="_blank">
+                      <img src="assets/images/kite.jpg"
+                       class="img-responsive center-block"
+                      style="max-height:250px;" /></a> &nbsp;&nbsp;                    
+  
+                </div>
+                &nbsp;  &nbsp; 
+                <div class="image">
+                      <a href="https://www.goodreads.com/book/show/3.Harry_Potter_and_the_Sorcerer_s_Stone" target="_blank">
+                        <img src="assets/images/harry.jpg"
+                        class="img-responsive center-block"
+                        style="max-height:250px;" /></a> &nbsp;&nbsp;
+  
+                        <a href="https://www.goodreads.com/book/show/186190.Forrest_Gump" target="_blank">
+                          <img src="assets/images/gump.jpg"
+                         class="img-responsive center-block"
+                         style="max-height:250px;" /></a> &nbsp;&nbsp;
+  
+                         <a href="https://www.goodreads.com/book/show/13496.A_Game_of_Thrones" target="_blank">
+                        <img src="assets/images/game.jpg"
+                         class="img-responsive center-block"
+                         style="max-height:250px;" /></a>  &nbsp;  &nbsp;
+                         
+                         <a href="https://www.goodreads.com/book/show/11870085-the-fault-in-our-stars" target="_blank">
+                          <img src="assets/images/fault.jpg"
+                          class="img-responsive center-block"
+                          style="max-height:250px;" /></a> &nbsp;&nbsp;
+
+                          <a href="https://www.goodreads.com/book/show/2767052-the-hunger-games" target="_blank">
+                              <img src="assets/images/hunger.jpg"
+                              class="img-responsive center-block"
+                              style="max-height:250px;" /></a> &nbsp;&nbsp;
+
+                  </div>
+             
+      </div>
+      
+  </div>
+</div>
+

@@ -1,0 +1,76 @@
+<div class='card' style="margin-top:15px;">
+  <div class='card-header'>
+   <h4><i class="fa fa-list" aria-hidden="true"></i> {{pageTitle}}</h4>
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-4'>
+        <input type='text'
+        [(ngModel)]='listFilter'/>
+      </div>
+    </div>
+   
+<!--Search books -->
+<div class='row'>
+    <div class='col-md-2'>Sort by:</div>
+    <div class='col-md-4'>     
+        <select [(ngModel)]='sortByKey'>
+          <option value="_id">Book Id</option>
+          <option value="bookTitle">Title</option>
+          <option value="topic">Topic</option>
+          <option value="author">Author</option>
+          <option value="cost">Cost</option>
+        </select>          
+    </div>
+  </div>
+    <div class='row'>
+        <div class='col-md-2 pull-right'>Search by:</div>
+        <div class='col-md-4'>
+          <input type='text' placeholder="Title"
+          [(ngModel)]='searchtext'/>          
+        </div>
+      </div>
+
+    <div class='table-responsive'>
+      <table class='table'>
+        <thead>
+          <tr>
+        
+            <th>Title</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Cost</th>
+            <th>rating</th>
+            <th>Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let book of filteredBooks | sortBy: sortByKey | searchpipe: searchtext'>
+            <td><a [routerLink]="['/book', book._id]">  {{book.bookTitle}}</a>
+            </td>
+            <td>{{book.topic}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.cost}}</td>
+            <td>{{book.rating}}</td>
+            <td>
+                <label class="not-available" *ngIf="book.issued">Not Available</label>
+                
+                 <label class="available" *ngIf="!book.issued"><button class='btn btn-primary'
+                  (click)='reserveBook(book)'>
+                  Available
+               </button></label>
+       <!--    <label class="available" *ngIf="!book.issued"><button>Available</button></label>
+              <label class="not-available" *ngIf="book.issued">Not Available</label> -->   
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>
